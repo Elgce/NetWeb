@@ -1,26 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NetWeb msg="NetWeb for Tsinghua"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NetWeb from './components/NetWeb.vue'
 
-export default {
+export default{
   name: 'App',
   components: {
-    HelloWorld
+    NetWeb
   }
 }
+
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+  background-color: #E6E6E6;
 }
 </style>
