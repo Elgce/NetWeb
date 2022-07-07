@@ -65,9 +65,9 @@ export default {
 }
 </script>
 
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
   body{
     position: page;
     background: #DADBDC url(../img/background.png) repeat-x top;
@@ -91,10 +91,12 @@ export default {
     text-decoration: underline;
   }
   #netweb{
+    height: 100vh;
     position: page;
     min-width: 640px;
     min-height: 480px;
     margin-top: 0px;
+    background-color: #E6E6E6;
     background: #E6E6E6 url(../img/popup_bg.png) no-repeat top right;
   }
   .center{
