@@ -1,6 +1,7 @@
 <template>
   <div id="netweb">
     <div class = "center">
+      <!-- info-message to show the name,time of connection,usage of flux -->
       <div class = "greet">欢迎，&nbsp;Welcome,</div>
       <div id = "info">
         <h2 class = "name" id = "uname">lizy14</h2>
@@ -16,6 +17,7 @@
             <div class = "chinese-txt">已用流量</div>
             <div class = "english-txt">Usage</div>
           </div>
+          <!-- draw the usage of flux -->
           <div id = "usage-bar">
             <ul class = "calibration">
               <li>125</li>
@@ -35,6 +37,7 @@
       <div class = "disbar">
         <button id = "disconnect" onclick=""></button>
       </div>
+      <!-- four links on the bottom of the page -->
       <ul id = "links">
         <li>
           <a id = "link-info" href = "https://info.tsinghua.edu.cn" target = "_new" title = "清华大学信息门户">Info</a>
@@ -49,6 +52,7 @@
           <a id = "link-mail" href = "https://mails.tsinghua.edu.cn" target = "_new" title = "清华邮箱">Mail</a>
         </li>
       </ul>
+      <!-- two trangles to make the page better -->
       <div class = "triangle"></div>
       <div class = "corner"></div>
 
