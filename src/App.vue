@@ -1,14 +1,14 @@
 <template>
-  <NetWeb msg="NetWeb for Tsinghua"/>
+  <LoadWeb msg="NetWeb for Tsinghua"/>
 </template>
 
 <script>
-import NetWeb from './components/NetWeb.vue'
+import LoadWeb from './components/LoadWeb.vue'
 
 export default{
   name: 'App',
   components: {
-    NetWeb
+    LoadWeb
   }
 }
 

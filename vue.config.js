@@ -6,7 +6,7 @@ module.exports = {
     index: {
       entry: 'src/main.js',
       template: 'public/index.html',
-      filename: 'connect.html',
+      filename: 'index.html',
     },
     connect: {
       entry: 'src/pages/connect/connect.js',

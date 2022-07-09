@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class = "disbar">
-        <button id = "disconnect" onclick=""></button>
+        <button id = "disconnect" onclick="window.location.href='index.html'"></button>
       </div>
       <!-- four links on the bottom of the page -->
       <ul id = "links">
