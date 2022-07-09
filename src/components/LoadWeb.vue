@@ -149,8 +149,6 @@ export default {
     min-height: 480px;
     margin-top: 0px;
     background-image: linear-gradient(to bottom, #E6E6E6 40%,#c5c5c5 60%, #DADBDC 70%);
-    /* background-color: #E6E6E6;
-    background: #E6E6E6; */
   }
   #center {
     margin: auto;
@@ -159,6 +157,7 @@ export default {
   }
   body{
     position: page;
+    background: #DADBDC url(../img/background.png) repeat-x top;
     background-size: cover;
     background-attachment: fixed; 
     height: 100%;
@@ -167,8 +166,6 @@ export default {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background: #DADBDC url(../img/background.png) repeat-x top;
-    min-width: 768px;
     font-family:"Microsoft YaHei", "SimHei", "Apple LiGothic Medium";
   }
   #head {
