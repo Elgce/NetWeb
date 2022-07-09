@@ -11,7 +11,7 @@
             <div class = "english-txt">Duration</div>
           </div>
           <div class = "content-text">
-            <span id = "clock">00:07:03</span>
+            <t_Clock id = "clock"></t_Clock>
           </div>
           <div class = "label_text">
             <div class = "chinese-txt">已用流量</div>
@@ -61,14 +61,21 @@
 </template>
 
 <script>
+
+import t_Clock from "./clock.vue"
+
 export default {
   name: 'NetWeb',
   props: {
     msg: String
-  }
+  },
+  components: {
+    t_Clock
+  },
+  
+    
 }
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
