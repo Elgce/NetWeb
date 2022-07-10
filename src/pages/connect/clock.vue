@@ -1,6 +1,7 @@
 <template>
     <span class = "clock">{{nowTime}}</span>
 </template>
+
  <script>
     export default {
     name: 't_Clock',

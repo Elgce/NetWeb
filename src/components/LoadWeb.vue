@@ -12,7 +12,7 @@
       <div class = "qrcode">
         <center>
           <p>
-            <img src = "../img/qrcode.jpg" width = "100" height = "100">
+            <img src = "../static/img/qrcode.jpg" width = "100" height = "100">
           </p>
           <font size="2">欢迎关注“清华大学信息服务”</font>
         </center>
@@ -20,7 +20,7 @@
       <div id = "content">
         <div id = "attsinghua" style = "position: absolute; top: -137px; right: 0px;">
           <a href = "https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421fdf843952b3569406e469dbf915b243d737ce7f48b03bf62d6" target="_blank">
-            <img  src = "../img/attsinghua.png" style="width: 215px; height: 105px;">
+            <img  src = "../static/img/attsinghua.png" style="width: 215px; height: 105px;">
           </a>
         </div>
         <div class = "greet">您好，&nbsp;Hello,</div>
@@ -157,7 +157,7 @@ export default {
   }
   body{
     position: page;
-    background: #DADBDC url(../img/background.png) repeat-x top;
+    background: #DADBDC url(../static/img/background.png) repeat-x top;
     background-size: cover;
     background-attachment: fixed; 
     height: 100%;
@@ -169,7 +169,7 @@ export default {
     font-family:"Microsoft YaHei", "SimHei", "Apple LiGothic Medium";
   }
   #head {
-    background: url(../img/logo.gif) no-repeat;
+    background: url(../static/img/logo.gif) no-repeat;
     float: left;
     margin: 16px 0 32px -86px;
   }
@@ -183,7 +183,7 @@ export default {
     height: 105px;
     text-indent: -999em;
     overflow: hidden;
-    background: url(../img/title.png) no-repeat;
+    background: url(../static/img/title.png) no-repeat;
     margin-left: 82px;
   }
   .qrcode{
@@ -220,7 +220,7 @@ export default {
     clear: both;
     width:100%;
     height: 496px;
-    background: url("../img/content_shadow.png") no-repeat 0 416px;
+    background: url("../static/img/content_shadow.png") no-repeat 0 416px;
   }
   .greet{
     text-indent: -999em;
@@ -230,7 +230,7 @@ export default {
     left: 0;
     width: 720px;
     height: 304px;
-    background: #E64E2E url("../img/greeting.png") no-repeat 32px 28px;
+    background: #E64E2E url("../static/img/greeting.png") no-repeat 32px 28px;
     -webkit-box-shadow:0 0 8px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
@@ -261,7 +261,7 @@ export default {
     width: 320px;
     height: 160px;
     border-width: 16px 16px 0 0;
-    background: #E6562E url("../img/notice.png") no-repeat 14px 10px;
+    background: #E6562E url("../static/img/notice.png") no-repeat 14px 10px;
     -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     box-shadow:  0 0 8px rgba(0,0,0,0.1);
@@ -310,7 +310,7 @@ export default {
     width: 398px;
     height: 46px;
     border: #9CB22E solid 1px;
-    background: #C0CE55 url(../img/connect.png) no-repeat center 0;
+    background: #C0CE55 url(../static/img/connect.png) no-repeat center 0;
     overflow: hidden;
   }
   #connect:hover{
@@ -341,7 +341,7 @@ export default {
     left: 0;
     width: 304px;
     height: 112px;
-    background: url(../img/download.png) no-repeat 0 8px;
+    background: url(../static/img/download.png) no-repeat 0 8px;
   }
   #title{
    text-indent: -999em;
@@ -375,23 +375,23 @@ export default {
   }
   .windows{
     left: 16px;
-    background: url(../img/windows.gif) no-repeat 2px 0;
+    background: url(../static/img/windows.gif) no-repeat 2px 0;
   }
   .mac{
     left: 80px;
-    background: url(../img/mac.gif) no-repeat 0 0;
+    background: url(../static/img/mac.gif) no-repeat 0 0;
   }
   .linux{
     left: 144px;
-    background: url(../img/linux.gif) no-repeat 0 0;
+    background: url(../static/img/linux.gif) no-repeat 0 0;
   }
   .android{
     left: 207px;
-    background: url(../img/android.gif) no-repeat 0 0;
+    background: url(../static/img/android.gif) no-repeat 0 0;
   }
   .ios{
     left: 271px;
-    background: url(../img/ios.gif) no-repeat 0 0;
+    background: url(../static/img/ios.gif) no-repeat 0 0;
   }
   #widget{
     position: absolute;
@@ -425,14 +425,14 @@ export default {
     float: left;
   }
   .bookmark{
-    background: url(../img/bookmark.gif) no-repeat 8px 0;
+    background: url(../static/img/bookmark.gif) no-repeat 8px 0;
   }
   #widget .help{
-    background: url(../img/help.gif) no-repeat 4px 0;
+    background: url(../static/img/help.gif) no-repeat 4px 0;
   }
   #widget .contact{
     float: right;
-    background: url(../img/contact.gif) no-repeat 4px 0;
+    background: url(../static/img/contact.gif) no-repeat 4px 0;
   }
   #widget .contact a{
     display: block;

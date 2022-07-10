@@ -11,7 +11,7 @@
             <div class = "english-txt">Duration</div>
           </div>
           <div class = "content-text">
-            <t_Clock id = "clock"></t_Clock>
+            <t_Clock id = "clock">00:00:00</t_Clock>
           </div>
           <div class = "label_text">
             <div class = "chinese-txt">已用流量</div>
@@ -29,7 +29,7 @@
             <div id = "firststripe"></div>
             <div id = "secondstripe"></div>
             <div class = "content-text">
-              <span class="unit" id="usage-flux">27.43G</span>
+              <t_Flux class="unit" id="usage-flux" ></t_Flux>
             </div>
           </div>
         </div>
@@ -63,6 +63,7 @@
 <script>
 
 import t_Clock from "./clock.vue"
+import t_Flux from "./flux.vue"
 
 export default {
   name: 'NetWeb',
@@ -70,7 +71,8 @@ export default {
     msg: String
   },
   components: {
-    t_Clock
+    t_Clock,
+    t_Flux,
   },
   
     
@@ -81,7 +83,7 @@ export default {
 <style scoped>
   body{
     position: page;
-    background: #DADBDC url(../../img/background.png) repeat-x top;
+    background: #DADBDC url(../../static/img/background.png) repeat-x top;
     background-size: cover;
     background-attachment: fixed; 
     height: 100%;
@@ -108,11 +110,11 @@ export default {
     min-height: 480px;
     margin-top: 0px;
     background-color: #E6E6E6;
-    background: #E6E6E6 url(../../img/popup_bg.png) no-repeat top right;
+    background: #E6E6E6 url(../../static/img/popup_bg.png) no-repeat top right;
   }
   .center{
     position: relative;
-    background: url(../../img/popup_shadow.png) no-repeat 48px 344px;
+    background: url(../../static/img/popup_shadow.png) no-repeat 48px 344px;
     width: 640px;
     margin: auto;
     height: 480px;
@@ -124,16 +126,16 @@ export default {
   }
 
   #link-info{
-    background: url(../../img/popup_info.gif) no-repeat 2px 2px;
+    background: url(../../static/img/popup_info.gif) no-repeat 2px 2px;
   }
   #link-lib{
-    background: url(../../img/popup_lib.gif) no-repeat 2px 2px;
+    background: url(../../static/img/popup_lib.gif) no-repeat 2px 2px;
   }
   #link-mail{
-    background: url(../../img/popup_mail.gif) no-repeat 2px 2px;
+    background: url(../../static/img/popup_mail.gif) no-repeat 2px 2px;
   }
   #link-learn{
-    background: url(../../img/popup_mail.gif) no-repeat 2px 2px;
+    background: url(../../static/img/popup_mail.gif) no-repeat 2px 2px;
   }
 
   a{
@@ -146,7 +148,7 @@ export default {
     left: 48px;
     width: 512px;
     height: 224px;
-    background: #E64E2E url(../../img/popup_greeting.png) no-repeat 30px 46px;
+    background: #E64E2E url(../../static/img/popup_greeting.png) no-repeat 30px 46px;
     text-indent: -999em;
     overflow: hidden;
     -webkit-box-shadow:0 0 8px rgba(0,0,0,0.1); 
@@ -210,7 +212,7 @@ export default {
     padding: 0;
     width: 280px;
     height: 32px;
-    background: url(../../img/usage_bg.gif) repeat-y;
+    background: url(../../static/img/usage_bg.gif) repeat-y;
   }
   #usage-bar .calibration{
     position: absolute;
@@ -230,6 +232,8 @@ export default {
   }
   #usage-bar .content-text .unit{
     font-size: 24px;
+    /* color: #AD3B23;
+    z-index: 999em; */
   }
   .calibration li{
     float: right;
@@ -293,7 +297,7 @@ export default {
     width: 174px;
     height: 46px;
     border: #B2AABE solid 1px;
-    background: #C0BDCC url(../../img/disconnect.png) no-repeat center 0;
+    background: #C0BDCC url(../../static/img/disconnect.png) no-repeat center 0;
     overflow: hidden;
   }
   #disconnect:hover{
