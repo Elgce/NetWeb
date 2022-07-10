@@ -25,7 +25,7 @@
               <li>75</li>
               <li>50</li>
             </ul>
-            <div id = "usage-value" style = "width: 58.17px;"></div>
+            <div id = "usage-value"></div>
             <div id = "firststripe"></div>
             <div id = "secondstripe"></div>
             <div class = "content-text">
@@ -62,6 +62,7 @@
 
 <script>
 
+
 import t_Clock from "./clock.vue"
 import t_Flux from "./flux.vue"
 
@@ -74,7 +75,27 @@ export default {
     t_Clock,
     t_Flux,
   },
-  
+  data () {
+    return{
+      flux: 0,
+      flux_wid: "",
+    }
+  },
+  mounted () {
+    this.get_flux();
+  },
+  methods: {
+    get_flux() {
+      let that = this;
+      fetch("/api/get_flux").then((res) => res.json().then((j) => {
+        that.flux = j.flux
+        let ff = this.flux * 2.16
+        this.flux_wid = ff + "px"
+        document.getElementById("usage-value").style.width = this.flux_wid
+      }))
+      
+    }
+  },
     
 }
 </script>

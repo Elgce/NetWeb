@@ -4,7 +4,7 @@ from flask import Flask, request, abort, send_file, g, session
 from time import time
 import os
 
-flux = 0
+flux = 30
 
 app = Flask(__name__, static_folder="./dist/", static_url_path="/")
 # app.config['SECRET_KEY'] = os.urandom(24)
@@ -12,6 +12,11 @@ app = Flask(__name__, static_folder="./dist/", static_url_path="/")
 @app.route("/")
 def index():
     return send_file("./dist/index.html")
+
+@app.route("/api/get_flux")
+def get_flux():
+    global flux
+    return {"flux": flux}
 
 @app.route("/api/")
 def api_hello():
