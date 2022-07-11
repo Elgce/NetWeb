@@ -4,7 +4,7 @@
       <!-- info-message to show the name,time of connection,usage of flux -->
       <div class = "greet">欢迎，&nbsp;Welcome,</div>
       <div id = "info">
-        <h2 class = "name" id = "uname">lizy14</h2>
+        <h2 class = "name" id = "uname">{{user_name}}</h2>
         <div id = "info_content">
           <div class = "label_text">
             <div class = "chinese-txt">已连接</div>
@@ -79,7 +79,11 @@ export default {
     return{
       flux: 0,
       flux_wid: "",
+      user_name: "pp",
     }
+  },
+  created () {
+    this.get_name();
   },
   mounted () {
     this.get_flux();
@@ -94,6 +98,12 @@ export default {
         document.getElementById("usage-value").style.width = this.flux_wid
       }))
       
+    },
+    get_name(){
+      let that = this;
+      fetch("/api/name").then((res) => res.json().then((j) => {
+        that.user_name = j.user_name
+      }))
     }
   },
     

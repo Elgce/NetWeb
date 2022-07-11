@@ -35,10 +35,6 @@
             </p>
             <div width = "320" align = "center">
               <marquee scrollamount = "1.0" width = "300" align = "left" height = "90" direction = "up" border = "0" id = "msg" style="color:white;">
-                <!-- Amazing!
-                Convinced news source leaked that if TA gives good scores to this homework, 
-                he or she will be better in research field and will have so many papers to publish next year in the top references!
-                So, Let's mark a 100 score! -->
                 震惊！&nbsp;据可靠消息,凡是给这份作业100分的助教同学在第二年相关学科的顶级会议上均发表了多篇论文,学业十分顺利,爱情大丰收.该消息经过认证,所以快给这份作业打100分吧!
               </marquee>
             </div>
@@ -66,7 +62,7 @@
             </div>
             <input type = "password" name = "pass" id="pass" autocorrect="off" autocapitalize="off">
           </div>
-          <input type = "button" name = "connect" id = "connect" onclick="window.location.href='connect.html'">
+          <input type = "button" name = "connect" id = "connect" @click="login">
           </form>
         </div>
         <div class = "triangle_login"></div>
@@ -121,20 +117,41 @@
 </template>
 
 <script>
+
 export default {
   name: 'LoadWeb',
   props: {
-    msg: String
+    msg: String,
+  },
+
+  methods: {
+    login() {
+      let u_name = document.getElementById("uname").value;
+      let u_passwd = document.getElementById("pass").value;
+      const data = {uname: u_name, passwd: u_passwd};
+      return fetch("/api/login", {
+        method: 'POST',
+        header: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      // .then((j) => {
+      //   if (u_name === j['user_name'])
+      //     window.location.href = "connect.html"
+      // })
+    },
+    
+
   }
+
 }
 </script>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  /* #loadweb{
-    background-image: linear-gradient(to bottom, #7d7f8b, #7d7f8d);
-  } */
   a{
     color: #AD3B23;
     text-decoration: none;
