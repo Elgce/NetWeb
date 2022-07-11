@@ -2,6 +2,7 @@
   <div id="loadweb">
     <div id = "center">
       <div id = "head">
+        <!-- upper parts including title and qrcode -->
         <div id = "title">
           <p>清华大学无线校园网</p>
           <p class = "english">
@@ -17,6 +18,7 @@
           <font size="2">欢迎关注“清华大学信息服务”</font>
         </center>
       </div>
+      <!-- content for log in and some notices -->
       <div id = "content">
         <div id = "attsinghua" style = "position: absolute; top: -137px; right: 0px;">
           <a href = "https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421fdf843952b3569406e469dbf915b243d737ce7f48b03bf62d6" target="_blank">
@@ -66,6 +68,7 @@
           </form>
         </div>
         <div class = "triangle_login"></div>
+        <!-- some superlinks linking to other pages or sth the other -->
         <div id = "download">
           <ul id = "system">
             <li>
@@ -146,6 +149,7 @@ export default {
           alert("用户名或密码错误！");
       })
     },
+    // clear the session and cookie in the page
     clearlog() {
       return fetch("/api/logout").then ( () =>{
       })

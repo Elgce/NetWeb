@@ -1,7 +1,7 @@
 <template>
     <span class = "flux">{{nowFlux}}</span>
 </template>
-
+<!-- template for the flux num, show how much flux the user has used -->
 <script>
     export default {
         name: 't_Flux',

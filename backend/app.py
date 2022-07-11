@@ -16,13 +16,13 @@ user_info = {
     }
 }
 
-app = Flask(__name__, static_folder="./dist/", static_url_path="/")
+app = Flask(__name__, static_folder="../dist/", static_url_path="/")
 # app.config['SECRET_KEY'] = os.urandom(24)
 app.secret_key = "bqw123"
 @app.route("/")
 def index():
-    return send_file("./dist/index.html")
-
+    return send_file("../dist/index.html")
+#api  to return flux used 
 @app.route("/api/get_flux")
 def get_flux():
     name = session['name']
@@ -47,16 +47,20 @@ def get_profile(name):
         "flux": user_info[name]['flux'],
     }
 
+#api to return user's name
 @app.route("/api/name")
 def name():
     name = session.get("name", None)
     return {"user_name": name}
 
+#log-out api for connect
 @app.route("/api/logout")
 def log_out():
     session.clear()
     return ""
 
+
+# log-in api for index
 @app.route("/api/login",methods=['GET','POST'])
 def log_in():
     name = session.get("name", None)
@@ -75,4 +79,4 @@ def log_in():
             session.clear()
             return {"user_name": "none"}
 if __name__=="__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host = "0.0.0.0")

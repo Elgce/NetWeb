@@ -82,13 +82,16 @@ export default {
       user_name: "pp",
     }
   },
+  // get user's name when the page is loading
   created () {
     this.get_name();
   },
+  // after loading get the num of flux used
   mounted () {
     this.get_flux();
   },
   methods: {
+    // a click-on function when click the log out button
     logout(){
       return fetch("/api/logout").then ( () =>{
         window.location.href = "index.html";

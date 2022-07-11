@@ -1,7 +1,7 @@
 <template>
     <span class = "clock">{{nowTime}}</span>
 </template>
-
+<!-- a template using single js to make a changing clock shown on the page -->
  <script>
     export default {
     name: 't_Clock',
