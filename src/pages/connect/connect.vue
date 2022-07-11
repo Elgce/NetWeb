@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class = "disbar">
-        <button id = "disconnect" onclick="window.location.href='index.html'"></button>
+        <button id = "disconnect" @click="logout"></button>
       </div>
       <!-- four links on the bottom of the page -->
       <ul id = "links">
@@ -89,6 +89,12 @@ export default {
     this.get_flux();
   },
   methods: {
+    logout(){
+      return fetch("/api/logout").then ( () =>{
+        window.location.href = "index.html";
+      })
+      
+    },
     get_flux() {
       let that = this;
       fetch("/api/get_flux").then((res) => res.json().then((j) => {

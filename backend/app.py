@@ -7,12 +7,12 @@ user_info = {
     "lizy14":{
         "login": False,
         "passwd": "123456",
-        "flux": 0,
+        "flux": -0.25,
     },
     "bqw20":{
         "login": False,
         "passwd": "123456",
-        "flux": 0,
+        "flux": -0.25,
     }
 }
 
@@ -52,6 +52,11 @@ def name():
     name = session.get("name", None)
     return {"user_name": name}
 
+@app.route("/api/logout")
+def log_out():
+    session.clear()
+    return ""
+
 @app.route("/api/login",methods=['GET','POST'])
 def log_in():
     name = session.get("name", None)
@@ -59,20 +64,15 @@ def log_in():
         return get_profile(name)
     else:
         session.clear()
-        print("200")
-        dat = request.get_data()
-        print(dat)
-        
-        
-        print("100")
+        dat = request.get_json()
         name = dat.get("uname")
-        print(name)
         passwd = dat["passwd"]
         if name in user_info.keys() and user_info[name]["passwd"] == passwd:
             session['name'] = name
             user_info[name]['login'] = True
             return get_profile(name)
         else:
-            abort(403)
+            session.clear()
+            return {"user_name": "none"}
 if __name__=="__main__":
     app.run(debug=True, port=5000)

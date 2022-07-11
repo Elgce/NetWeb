@@ -123,7 +123,9 @@ export default {
   props: {
     msg: String,
   },
-
+  mounted() {
+    this.clearlog();
+  },
   methods: {
     login() {
       let u_name = document.getElementById("uname").value;
@@ -131,18 +133,23 @@ export default {
       const data = {uname: u_name, passwd: u_passwd};
       return fetch("/api/login", {
         method: 'POST',
-        header: {
+        headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
       })
       .then(res => res.json())
-      // .then((j) => {
-      //   if (u_name === j['user_name'])
-      //     window.location.href = "connect.html"
-      // })
+      .then((j) => {
+        if (u_name === j['user_name'])
+          window.location.href = "connect.html";
+        else if (j['user_name'] === "none")
+          alert("用户名或密码错误！");
+      })
     },
-    
+    clearlog() {
+      return fetch("/api/logout").then ( () =>{
+      })
+    }
 
   }
 
