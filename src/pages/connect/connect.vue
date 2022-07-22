@@ -57,14 +57,16 @@
       <div class = "corner"></div>
 
     </div>
+    <div id="echart"></div>
   </div>
 </template>
 
 <script>
 
 
-import t_Clock from "./clock.vue"
-import t_Flux from "./flux.vue"
+import t_Clock from "./clock.vue";
+import t_Flux from "./flux.vue";
+import * as echarts from 'echarts';
 
 export default {
   name: 'NetWeb',
@@ -89,6 +91,7 @@ export default {
   // after loading get the num of flux used
   mounted () {
     this.get_flux();
+    this.draw_chart();
   },
   methods: {
     // a click-on function when click the log out button
@@ -113,7 +116,89 @@ export default {
       fetch("/api/name").then((res) => res.json().then((j) => {
         that.user_name = j.user_name
       }))
-    }
+    },
+    draw_chart() {
+      let chartDom = document.getElementById('echart');
+      let myChart = echarts.init(chartDom);
+      let tim = [];
+      let data = [Math.random()];
+      function get_time(){
+        let date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        let mi = "";
+        let se = "";
+        let ti = "";
+        if(second < 10){
+          se = "0";
+        }
+        if(minute < 10){
+          mi = "0";
+        }
+        if(hour < 10){
+          ti = "0";
+        }
+        let time = ti + hour + ":" + mi + minute + ":" + se + second;
+        return time;
+      }
+
+
+      let option = {
+        title: {
+          text: '流量使用统计'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: tim,
+          name: '时间',
+        },
+        yAxis: {
+          type: 'value',
+          name: '已用流量/MB',
+          splitLine: {
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: "red",
+          },
+          show: true,
+        },
+        },
+        series: {
+          name: 'usage',
+          type: 'line',
+          smooth: true,
+          data: data,
+        },
+        
+      };
+      setInterval(() => {
+        let time = get_time();
+        tim.push(time);
+        data.push((Math.random()) * 5+ data[data.length - 1]);
+        if(tim.length>10){
+          tim.shift();
+          data.shift();
+        }
+        myChart.setOption({
+          xAxis: {
+            data: tim,
+          },
+          series: [
+            {
+              name: 'usage',
+              data: data,
+            }
+          ]
+        });
+      }, 2000);
+      option && myChart.setOption(option)
+    },
   },
     
 }
@@ -152,7 +237,11 @@ export default {
     background-color: #E6E6E6;
     background: #E6E6E6 url(../../static/img/popup_bg.png) no-repeat top right;
   }
-  .center{
+  #echart{
+    height: 540px;
+    width: 1350px;
+  }
+.center{
     position: relative;
     background: url(../../static/img/popup_shadow.png) no-repeat 48px 344px;
     width: 640px;
